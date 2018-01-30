@@ -11,20 +11,23 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 /**
  *
  * @author USER
  */
-@Path("User")
+@Path("user")
 public class User {
       //injection d'EJB
     @EJB
     UserManager manager;
     
+
     @GET
-    @Produces(MediaType.TEXT_HTML)
-    public String getString(){
+    @Path("/get")
+    @Produces( MediaType.APPLICATION_JSON)
+    public String getString2(){//Response
         return manager.getUser();
         
     }

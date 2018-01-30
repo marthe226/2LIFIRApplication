@@ -18,6 +18,11 @@ import javax.enterprise.context.ApplicationScoped;
 public class Mongo {
     private MongoClient client;
 
+    public MongoClient getClient() {
+        return client;
+    }
+    
+
     public Mongo(MongoClient client) {
         this.client = client;
     }
@@ -26,7 +31,10 @@ public class Mongo {
         client=new MongoClient(new MongoClientURI("mongodb://localhost:27017"));
     }
    public DBCollection getCollection(String name){
-       return (client.getDB("Mongo").getCollection(name));
+       return (client.getDB("test").getCollection(name));
+   }
+     public String getDb(){
+       return  client.getDatabaseNames().toString();//client.getDB("Mong").getCollection(name));
    }
     
 }
